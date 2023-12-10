@@ -16,13 +16,13 @@ try:
         GPIO.output(red_led_pin, GPIO.HIGH)
         # Turn the green LED off
         GPIO.output(green_led_pin, GPIO.LOW)
-        time.sleep(1)
+        time.sleep(2)
 
         # Turn the red LED off
         GPIO.output(red_led_pin, GPIO.LOW)
         # Turn the green LED on
         GPIO.output(green_led_pin, GPIO.HIGH)
-        time.sleep(1)
+        time.sleep(2)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
