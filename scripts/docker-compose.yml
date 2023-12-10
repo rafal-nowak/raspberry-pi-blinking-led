@@ -1,0 +1,6 @@
+version: '3'
+services:
+  myapp:
+    image: rafalnowak444/raspberrypi-blinking-led:latest
+    privileged: true  # Add this line to enable the --privileged flag
+    restart: always  # Ensure the container restarts on failure or system restart
