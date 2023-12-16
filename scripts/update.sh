@@ -12,6 +12,7 @@ REPOSITORY="rafalnowak444"
 
 # Get the latest version (tag) from the docker-compose.yml file
 DOCKER_COMPOSE_TAG=$(yq '.services.myapp.image' docker-compose.yml | awk -F ':' '{print $2}' | sed 's/[^a-zA-Z0-9_-]//g')
+DOCKER_COMPOSE_TAG=$(echo "$DOCKER_COMPOSE_TAG" | sed 's/\([0-9]\{4\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)\([0-9]\{2\}\)/\1.\2.\3.\4.\5.\6/')
 
 # Use the Docker Hub API to get the tags for the image
 TAGS=$(curl -s "https://registry.hub.docker.com/v2/repositories/${REPOSITORY}/${IMAGE_NAME}/tags/" | jq -r '.results[].name')
