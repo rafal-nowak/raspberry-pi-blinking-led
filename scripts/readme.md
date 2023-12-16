@@ -1,3 +1,15 @@
+Install tools:
+
+```
+sudo apt-get update
+sudo apt-get install jq
+```
+
+```
+sudo apt-get update
+sudo apt-get install yq
+```
+
 Run the Update Script:
 
 Make sure to make the script executable by running 
