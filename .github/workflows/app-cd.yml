@@ -31,13 +31,13 @@ jobs:
       
       - name: Set build number
         id: build-number
-        run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_ENV
+        run: echo "BUILD_NUMBER=$(date '+%Y.%m.%d.%H.%M.%S')" >> $GITHUB_ENV
 
       - name: Build Docker Image
         run: |
           docker buildx create --use
           docker buildx build \
             --tag ${{ vars.DOCKERHUB_USERNAME }}/raspberrypi-blinking-led:${{ env.BUILD_NUMBER }} \
-            --tag ${{ vars.DOCKERHUB_USERNAME }}/raspberrypi-blinking-led:latest \
+#            --tag ${{ vars.DOCKERHUB_USERNAME }}/raspberrypi-blinking-led:latest \
             --file Dockerfile \
             --push .
